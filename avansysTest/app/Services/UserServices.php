@@ -13,7 +13,16 @@ class UserServices
 
     public function getUserById($id)
     {
-        return User::find($id);
+        $data = User::find($id);
+
+        if(!isset($data->id))
+        {
+            return response()->json([
+                'message' => 'Usuário não encontrado!',
+            ], 404);
+        }
+
+        return $data;
     }
 
     public function createuser($request)
