@@ -10,6 +10,6 @@ if [ ! -f ".env" ]; then
 fi
 php artisan key:generate
 php artisan migrate --force
-php artisan db::seed
+php artisan migrate:fresh --seed
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 exec "$@"
