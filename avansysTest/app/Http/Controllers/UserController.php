@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Services\UserServices;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    protected $userService;
+
+    public function __construct()
+    {
+        $this->userService = new UserServices();
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return User::all();
+        return $this->userService->getAllUsers();
     }
 
     /**
@@ -28,28 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'name'       => 'required|string',
-            'email'      => 'required|email',
-            'date_birth' => 'required|date',
-        ]);
-
-        try
-        {
-            User::create($validateData);
-
-            return response()->json([
-                'message' => 'Usuário criado com sucesso!',
-                'data'    => $validateData,
-            ],200);
-        }
-        catch (\Exception $erro)
-        {
-            return response()->json([
-                'message' => 'Erro ao criar usuário!',
-                'error'   => $erro->getMessage(),
-            ], 500);
-        }
+        return $this->userService->createuser($request);
     }
 
     /**
@@ -57,7 +43,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $this->userService->getUserById($id);
     }
 
     /**
@@ -73,39 +59,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validateData = $request->validate([
-            'name'          => 'string',
-            'email'         => 'email',
-            'date_birth'    => 'date',
-        ]);
-
-        try
-        {
-            $user = User::find($id);
-
-            if($user)
-            {
-                $user->update($validateData);
-
-                return response()->json([
-                    'message'   => 'Usuário atualizado com sucesso!',
-                    'data'      => $validateData,
-                ], 200);
-            }
-            else
-            {
-                return response()->json([
-                    'message'   => 'Usuário não encontrado!',
-                ], 404);
-            }
-        }
-        catch (\Exception $erro)
-        {
-            return response()->json([
-                'message'   => 'Erro ao atualizar usuário!',
-                'error'     => $erro->getMessage(),
-            ], 500);
-        }
+        return $this->userService->updateUser($request, $id);
     }
 
     /**
@@ -113,19 +67,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        $deleted  = (User::destroy($id));
-
-        if($deleted)
-        {
-            return response()->json([
-                'message'   => 'Usuário deletado com sucesso!',
-            ], 200);
-        }
-        else
-        {
-            return response()->json([
-                'message'   => 'Usuário não encontrado!',
-            ], 404);
-        }
+        return $this->userService->deleteUser($id);
     }
 }
