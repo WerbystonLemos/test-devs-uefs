@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "e2b09331-0ddd-4764-b4ae-dc363245fcce",
+		"name": "Avansys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43308355",
+		"_collection_link": "https://cloudy-resonance-728284.postman.co/workspace/Team-Workspace~cb2acde2-b599-40e0-8d83-cf80db9acce9/collection/43308355-e2b09331-0ddd-4764-b4ae-dc363245fcce?action=share&source=collection_link&creator=43308355"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_path}}/api/user",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_path}}/api/user/1",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Werbyston\",\r\n    \"email\": \"meuEmail@bol.com\",\r\n    \"date_birth\": \"1900-10-31\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/user",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Werbyston Lemos",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "email@email.com",
+									"disabled": true
+								},
+								{
+									"key": "date_birth",
+									"value": "2002-01-01",
+									"description": "YYYY-MM-DD",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Werbyston\",\r\n    \"email\": \"meuEmail@bol.com\",\r\n    \"date_birth\": \"1900-10-31\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/user/10",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"10"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Werbyston",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "meuEmail@bol.com",
+									"disabled": true
+								},
+								{
+									"key": "date_birth",
+									"value": "1900-10-31",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_path}}/api/user/9",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Get All Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_path}}/api/post",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Posts by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_path}}/api/post/1",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Leitura Diária\",\r\n    \"user_id\": 1,\r\n    \"tag_id\": 1,\r\n    \"content\": \"Lorenm ipsumLorenm ipsumLorenm ipsumLorenm ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/post/",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Leitura do Dia\",\r\n    \"user_id\": 1,\r\n    \"tag_id\": 1,\r\n    \"content\": \"Lorenm ipsum ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "/api/post/12",
+							"path": [
+								"api",
+								"post",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_path}}/api/post/11",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Get All Tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/tag",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/tag/10",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"tag",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Minha Tag\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/tag",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Minha Nova Tag\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/tag/11",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"tag",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tag",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_path}}/api/tag/11",
+							"host": [
+								"{{api_path}}"
+							],
+							"path": [
+								"api",
+								"tag",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
